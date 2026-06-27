@@ -1,0 +1,2623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ghefira La-Agnasrasya Gracianette | System Administrator</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7fbff;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #c084fc;
+            color: white;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar-blur {
+            backdrop-filter: blur(18px);
+            background: rgba(255, 255, 255, .82);
+            transition: .35s;
+        }
+
+        .navbar-shadow {
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, .06);
+        }
+
+        /* =========================
+            SECTION TITLE
+        ========================= */
+
+        .section-title {
+
+            position: relative;
+
+            display: inline-block;
+
+            font-weight: 800;
+        }
+
+        .section-title::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 60%;
+
+            height: 5px;
+
+            left: 20%;
+
+            bottom: -10px;
+
+            border-radius: 999px;
+
+            background: linear-gradient(90deg,
+                    #ec4899,
+                    #8b5cf6,
+                    #14b8a6);
+
+        }
+
+        /* =========================
+            CARD
+        ========================= */
+
+        .glass-card {
+
+            background: rgba(255, 255, 255, .82);
+
+            backdrop-filter: blur(16px);
+
+            border: 1px solid rgba(255, 255, 255, .5);
+
+            transition: .35s;
+
+            border-radius: 24px;
+
+            box-shadow:
+
+                0 15px 40px rgba(15, 23, 42, .06);
+
+        }
+
+        .glass-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+
+                0 25px 60px rgba(139, 92, 246, .18);
+
+        }
+
+        /* =========================
+            BUTTON
+        ========================= */
+
+        .btn-primary {
+
+            background: linear-gradient(135deg,
+                    #8b5cf6,
+                    #7c3aed);
+
+            color: white;
+
+            border-radius: 999px;
+
+            transition: .35s;
+
+        }
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+
+                0 15px 35px rgba(124, 58, 237, .35);
+
+        }
+
+        .btn-secondary {
+
+            border: 2px solid #8b5cf6;
+
+            color: #7c3aed;
+
+            border-radius: 999px;
+
+            transition: .35s;
+
+        }
+
+        .btn-secondary:hover {
+
+            background: #8b5cf6;
+
+            color: white;
+
+        }
+
+        /* =========================
+            HERO
+        ========================= */
+
+        .hero-gradient {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -1;
+
+            background:
+
+                radial-gradient(circle at top left,
+                    rgba(244, 114, 182, .18),
+                    transparent 35%),
+
+                radial-gradient(circle at bottom right,
+                    rgba(20, 184, 166, .18),
+                    transparent 35%),
+
+                radial-gradient(circle at center,
+                    rgba(139, 92, 246, .15),
+                    transparent 45%);
+
+        }
+
+        /* =========================
+            PROFILE IMAGE
+        ========================= */
+
+        .profile-wrapper {
+
+            position: relative;
+
+            width: 340px;
+
+            max-width: 100%;
+
+        }
+
+        .profile-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -12px;
+
+            border-radius: 28px;
+
+            background:
+
+                linear-gradient(135deg,
+                    #8b5cf6,
+                    #ec4899,
+                    #14b8a6);
+
+            z-index: -1;
+
+            filter: blur(18px);
+
+            opacity: .35;
+
+        }
+
+        .profile-photo {
+
+            width: 100%;
+
+            aspect-ratio: 4 / 5;
+
+            object-fit: cover;
+
+            border-radius: 24px;
+
+            border: 6px solid white;
+
+            box-shadow:
+
+                0 25px 55px rgba(0, 0, 0, .12);
+
+        }
+
+        /* =========================
+            HIGHLIGHT
+        ========================= */
+
+        .highlight-card {
+
+            transition: .3s;
+
+            border-radius: 22px;
+
+            background: white;
+
+            border: 1px solid #edf2f7;
+
+            box-shadow:
+
+                0 10px 30px rgba(15, 23, 42, .05);
+
+        }
+
+        .highlight-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+
+                0 20px 40px rgba(139, 92, 246, .15);
+
+        }
+
+        /* =========================
+            SKILL BADGE
+        ========================= */
+
+        .skill-badge {
+
+            transition: .3s;
+
+            border-radius: 999px;
+
+            font-weight: 600;
+
+        }
+
+        .skill-badge:hover {
+
+            transform:
+
+                translateY(-4px)
+                scale(1.05);
+
+        }
+
+        /* =========================
+            PROJECT
+        ========================= */
+
+        .project-card {
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            transition: .35s;
+
+            background: white;
+
+            border: 1px solid #ececec;
+
+            box-shadow:
+
+                0 15px 40px rgba(15, 23, 42, .05);
+
+        }
+
+        .project-card:hover {
+
+            transform:
+
+                translateY(-10px);
+
+            box-shadow:
+
+                0 30px 70px rgba(139, 92, 246, .18);
+
+        }
+
+        /* =========================
+            MODAL
+        ========================= */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(15, 23, 42, .55);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 999;
+
+        }
+
+        .modal-content {
+
+            width: 100%;
+
+            max-width: 820px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border-radius: 30px;
+
+            padding: 40px;
+
+            animation: modalShow .3s ease;
+
+        }
+
+        @keyframes modalShow {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+
+                    translateY(0);
+
+            }
+
+        }
+
+        /* =========================
+            SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(60px);
+
+            transition:
+
+                1s;
+
+        }
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+        /* =========================
+            SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #a78bfa;
+
+            border-radius: 999px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #eef2ff;
+
+        }
+
+        /* =========================
+            RESPONSIVE
+        ========================= */
+
+        @media (max-width:768px) {
+
+            .profile-wrapper {
+
+                width: 280px;
+
+                margin: auto;
+
+            }
+
+            .modal-content {
+
+                padding: 24px;
+
+            }
+
+        }
+    </style>
+
+</head>
+
+<body class="text-slate-700">
+
+<!-- =======================================
+        PART 2
+Navbar + Hero Section
+======================================= -->
+
+<!-- ==========================================================
+    NAVBAR
+=========================================================== -->
+
+<nav id="navbar"
+    class="fixed top-0 left-0 w-full z-50 navbar-blur">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <a href="#home"
+                class="text-3xl font-extrabold text-violet-600 tracking-tight hover:text-pink-500 duration-300">
+
+                ✨ Grace
+
+            </a>
+
+            <!-- Desktop Menu -->
+
+            <div class="hidden lg:flex items-center gap-8">
+
+                <a href="#about"
+                    class="font-medium text-slate-600 hover:text-violet-600 duration-300">
+
+                    About
+
+                </a>
+
+                <a href="#skills"
+                    class="font-medium text-slate-600 hover:text-violet-600 duration-300">
+
+                    Skills
+
+                </a>
+
+                <a href="#experience"
+                    class="font-medium text-slate-600 hover:text-violet-600 duration-300">
+
+                    Experience
+
+                </a>
+
+                <a href="#projects"
+                    class="font-medium text-slate-600 hover:text-violet-600 duration-300">
+
+                    Projects
+
+                </a>
+
+                <a href="#contact"
+                    class="btn-primary px-6 py-3 font-semibold">
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+            <!-- Mobile -->
+
+            <button
+                id="mobileButton"
+                class="lg:hidden">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-8 h-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+
+                    <path stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================================
+    HERO SECTION
+=========================================================== -->
+
+<section
+    id="home"
+    class="relative overflow-hidden pt-36 pb-28">
+
+    <div class="hero-gradient"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT -->
+
+            <div class="reveal">
+
+                <span
+                    class="inline-flex items-center gap-2 bg-violet-100 text-violet-700 px-5 py-2 rounded-full font-semibold mb-6">
+
+                    ✨ Available for Opportunities
+
+                </span>
+
+                <h1
+                    class="text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
+
+                    Ghefira
+                    <br>
+
+                    <span
+                        class="text-violet-600">
+
+                        La-Agnasrasya
+
+                    </span>
+
+                    <br>
+
+                    <span
+                        class="text-pink-500">
+
+                        Gracianette
+
+                    </span>
+
+                </h1>
+
+                <p
+                    class="mt-8 text-2xl font-semibold text-slate-700">
+
+                    System Engineer
+
+                    <span class="text-violet-500">
+
+                        •
+
+                    </span>
+
+                    Kubernetes Engineer
+
+                    <span class="text-violet-500">
+
+                        •
+
+                    </span>
+
+                    AI Infrastructure Enthusiast
+
+                </p>
+
+                <p
+                    class="mt-8 text-lg leading-8 text-slate-600 max-w-2xl">
+
+                    Building scalable cloud-native platforms, containerized infrastructure, 
+                    and AI-ready environments with expertise in Linux, Docker, Kubernetes, automation, 
+                    and enterprise system engineering. Passionate about designing reliable, secure, and high-performance 
+                    infrastructure that empowers modern application delivery.
+
+                </p>
+
+                <div
+                    class="mt-12 flex flex-wrap gap-4">
+
+                    <a
+                        href="#projects"
+                        class="btn-primary px-8 py-4 font-semibold">
+
+                        Explore My Projects 🚀
+
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="btn-secondary px-8 py-4 font-semibold">
+
+                        Let's Connect
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div
+                class="flex justify-center reveal">
+
+                <div
+                    class="profile-wrapper">
+
+
+                    <img
+                        src="assets/profile.jpeg"
+                        alt="Profile"
+                        class="profile-photo">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+    PROFESSIONAL HIGHLIGHTS
+=========================================================== -->
+
+<section
+    class="pb-24">
+
+    <div
+        class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Card -->
+
+            <div
+                class="highlight-card p-8 reveal">
+
+                <h2
+                    class="text-4xl font-extrabold text-violet-600">
+
+                    1+
+
+                </h2>
+
+                <p
+                    class="mt-3 font-semibold text-slate-700">
+
+                    Years of Experience
+
+                </p>
+
+                <p
+                    class="mt-3 text-slate-500">
+
+                    Building enterprise infrastructure
+                    using Linux, Docker, Kubernetes, 
+                    and container technologies.
+
+                </p>
+
+            </div>
+
+            <div
+                class="highlight-card p-8 reveal">
+
+                <h2
+                    class="text-4xl font-extrabold text-pink-500">
+
+                    AI
+
+                </h2>
+
+                <p
+                    class="mt-3 font-semibold">
+
+                    Infrastructure
+
+                </p>
+
+                <p
+                    class="mt-3 text-slate-500">
+
+                    Experience deploying GPU,
+                    Flyte,
+                    Ceph,
+                    MinIO,
+                    AI Pipeline,
+                    and Object Storage.
+
+                </p>
+
+            </div>
+
+            <div
+                class="highlight-card p-8 reveal">
+
+                <h2
+                    class="text-4xl font-extrabold text-teal-500">
+
+                    Infra
+
+                </h2>
+
+                <p
+                    class="mt-3 font-semibold">
+
+                    Container Platform
+
+                </p>
+
+                <p
+                    class="mt-3 text-slate-500">
+
+                    Experience managing Docker and Kubernetes environments, including container orchestration, 
+                    Helm deployments, storage, networking, monitoring, and infrastructure automation.
+
+                </p>
+
+            </div>
+
+            <div
+                class="highlight-card p-8 reveal">
+
+                <h2
+                    class="text-4xl font-extrabold text-amber-500">
+
+                    DevOps
+
+                </h2>
+
+                <p
+                    class="mt-3 font-semibold">
+
+                    Automation
+
+                </p>
+
+                <p
+                    class="mt-3 text-slate-500">
+
+                    CI/CD,
+                    Docker,
+                    Linux,
+                    Infrastructure Automation,
+                    and Cloud Native Ecosystem.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+    ABOUT SECTION
+=========================================================== -->
+
+<section
+    id="about"
+    class="py-24">
+
+    <div
+        class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="text-center mb-16 reveal">
+
+            <h2
+                class="section-title text-4xl lg:text-5xl text-slate-900">
+
+                About Me
+
+            </h2>
+
+            <p
+                class="mt-8 text-slate-500 max-w-3xl mx-auto">
+
+                Passionate about building reliable infrastructure using Linux, Docker, Kubernetes, 
+                and cloud-native technologies. I enjoy automating operational tasks, improving system reliability, 
+                and creating scalable platforms that simplify application deployment.
+
+            </p>
+
+        </div>
+
+        <div
+            class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT -->
+
+            <div class="reveal">
+
+                <div
+                    class="glass-card p-10">
+
+                    <h3
+                        class="text-3xl font-bold text-violet-600 mb-8">
+
+                        Hello 👋
+
+                    </h3>
+
+                    <p
+                        class="leading-8 text-slate-600">
+
+                        I'm <strong>Ghefira La-Agnasrasya Gracianette</strong>,
+                        a System Engineer with experience in Linux, Docker, Kubernetes, cloud-native infrastructure, 
+                        AI platform engineering, and DevOps automation.
+
+                    </p>
+
+                    <p
+                        class="leading-8 text-slate-600 mt-6">
+
+                        I enjoy building reliable, scalable, and secure infrastructure that supports modern application 
+                        deployment while improving system performance, operational efficiency, and maintainability.
+
+                    </p>
+
+                    <p
+                        class="leading-8 text-slate-600 mt-6">
+
+                        Throughout my career, I've worked on container platforms, enterprise infrastructure, AI-ready environments, 
+                        distributed storage, and automation solutions. My responsibilities range from infrastructure deployment and 
+                        platform administration to troubleshooting, proof-of-concept implementation, and continuous optimization.
+
+                    </p>
+
+                    <p
+                        class="leading-8 text-slate-600 mt-6">
+
+                        I'm passionate about exploring new technologies, solving complex infrastructure challenges, and continuously 
+                        improving systems through automation and engineering best practices.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="space-y-8 reveal">
+
+                <!-- EDUCATION -->
+                <div class="glass-card p-8">
+
+                    <div class="flex items-center gap-4 mb-8">
+
+                        <div
+                            class="w-14 h-14 rounded-full bg-violet-100 flex items-center justify-center text-2xl">
+
+                            🎓
+
+                        </div>
+
+                        <div>
+
+                            <h3 class="font-bold text-xl">
+
+                                Education
+
+                            </h3>
+
+                            <p class="text-slate-500">
+
+                                Academic Background
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BINUS -->
+
+                    <div class="mb-8 border-l-4 border-violet-400 pl-5">
+
+                        <div class="flex items-center justify-between">
+
+                            <h4 class="font-bold text-lg">
+
+                                BINUS University
+
+                            </h4>
+
+                            <span class="text-sm bg-violet-100 text-violet-700 px-3 py-1 rounded-full font-medium">
+
+                                Ongoing
+
+                            </span>
+
+                        </div>
+
+                        <p class="text-slate-500 mt-2">
+
+                            Bachelor's Degree in Computer Science
+
+                        </p>
+
+                        <p class="text-slate-400 text-sm mt-1">
+
+                            Currently pursuing undergraduate studies in Computer Science with a focus on software engineering, computing, and modern technologies.
+
+                        </p>
+
+                    </div>
+
+                    <!-- TEL-U -->
+
+                    <div class="border-l-4 border-pink-400 pl-5">
+
+                        <h4 class="font-bold text-lg">
+
+                            Telkom University
+
+                        </h4>
+
+                        <p class="text-slate-500 mt-2">
+
+                            Diploma in Telecommunication Technology
+
+                        </p>
+
+                        <p class="text-slate-500 mt-1">
+
+                            GPA: <strong>3.82 / 4.00</strong>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="glass-card p-8">
+
+                    <div
+                        class="flex items-center gap-4 mb-6">
+
+                        <div
+                            class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center text-2xl">
+
+                            ❤️
+
+                        </div>
+
+                        <div>
+
+                            <h3
+                                class="font-bold text-xl">
+
+                                Interests
+
+                            </h3>
+
+                            <p
+                                class="text-slate-500">
+
+                                Things I Enjoy
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="flex flex-wrap gap-3">
+
+                        <span class="skill-badge bg-violet-100 text-violet-600 px-4 py-2">
+
+                            Cloud Native
+
+                        </span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-600 px-4 py-2">
+
+                            Kubernetes
+
+                        </span>
+
+                        <span class="skill-badge bg-sky-100 text-sky-600 px-4 py-2">
+
+                            Docker
+
+                        </span>
+
+                        <span class="skill-badge bg-teal-100 text-teal-600 px-4 py-2">
+
+                            Linux
+
+                        </span>
+
+                        <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">
+
+                            AI Infrastructure
+
+                        </span>
+
+                        <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">
+
+                            Automation
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    SKILLS SECTION
+=========================================================== -->
+
+<section
+    id="skills"
+    class="py-24 bg-white">
+
+    <div
+        class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="text-center mb-16 reveal">
+
+            <h2
+                class="section-title text-4xl lg:text-5xl">
+
+                Professional Skills
+
+            </h2>
+
+            <p
+                class="mt-8 text-slate-500">
+
+                Technologies and platforms I work with.
+
+            </p>
+
+        </div>
+
+        <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Cloud Native -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-violet-600 mb-6">
+
+                    ☸ Cloud Native
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Kubernetes</span>
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Helm</span>
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Docker</span>
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Ingress</span>
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">ConfigMap</span>
+
+                    <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Secret</span>
+
+                </div>
+
+            </div>
+
+            <!-- Linux -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-teal-600 mb-6">
+
+                    🐧 Linux
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Ubuntu</span>
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Debian</span>
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Shell Script</span>
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Systemd</span>
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">SSH</span>
+
+                    <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Networking</span>
+
+                </div>
+
+            </div>
+
+            <!-- AI Platform -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-pink-600 mb-6">
+
+                    🤖 AI Infrastructure
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">Flyte</span>
+
+                    <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">GPU</span>
+
+                    <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">MinIO</span>
+
+                    <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">Ceph</span>
+
+                    <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">Object Storage</span>
+
+                </div>
+
+            </div>
+
+            <!-- DevOps -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-indigo-600 mb-6">
+
+                    ⚙ DevOps
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">Git</span>
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">GitHub</span>
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">GitLab</span>
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">Ansible</span>
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">CI/CD</span>
+
+                    <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">Automation</span>
+
+                </div>
+
+            </div>
+
+            <!-- Monitoring -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-yellow-600 mb-6">
+
+                    📊 Monitoring
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">Grafana</span>
+
+                    <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">Prometheus</span>
+
+                    <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">Zabbix</span>
+
+                </div>
+
+            </div>
+
+            <!-- Storage -->
+
+            <div
+                class="glass-card p-8 reveal">
+
+                <h3
+                    class="text-2xl font-bold text-cyan-600 mb-6">
+
+                    💾 Storage
+
+                </h3>
+
+                <div class="flex flex-wrap gap-3">
+
+                    <span class="skill-badge bg-cyan-100 text-cyan-700 px-4 py-2">PVC</span>
+
+                    <span class="skill-badge bg-cyan-100 text-cyan-700 px-4 py-2">StorageClass</span>
+
+                    <span class="skill-badge bg-cyan-100 text-cyan-700 px-4 py-2">Ceph</span>
+
+                    <span class="skill-badge bg-cyan-100 text-cyan-700 px-4 py-2">MinIO</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    EXPERIENCE SECTION
+=========================================================== -->
+
+<section id="experience" class="py-24">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-20 reveal">
+
+            <h2 class="section-title text-4xl lg:text-5xl text-slate-900">
+                Professional Experience
+            </h2>
+
+            <p class="mt-8 text-slate-500 max-w-3xl mx-auto">
+                My professional journey in designing, deploying, and maintaining enterprise infrastructure, cloud-native platforms, AI environments, and modern DevOps solutions.
+            </p>
+
+        </div>
+
+        <div class="relative">
+
+            <div class="hidden lg:block absolute left-8 top-0 bottom-0 w-1 rounded-full bg-gradient-to-b from-violet-400 via-pink-400 to-teal-400"></div>
+
+            <!-- ================================================= -->
+            <!-- PT. Quantus -->
+            <!-- ================================================= -->
+
+            <div class="relative lg:pl-28 mb-16 reveal">
+
+                <div class="hidden lg:flex absolute left-2 top-6 w-12 h-12 rounded-full bg-violet-500 text-white items-center justify-center text-xl shadow-lg">
+                    💼
+                </div>
+
+                <div class="glass-card p-8">
+
+                    <div class="flex flex-col lg:flex-row lg:justify-between">
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold text-violet-600">
+                                System Administrator
+                            </h3>
+
+                            <p class="text-slate-500 mt-2">
+                                PT. Quantus Telematika Indonesia
+                            </p>
+
+                        </div>
+
+                        <span
+                            class="mt-4 lg:mt-0 inline-flex w-fit self-start lg:self-center items-center justify-center whitespace-nowrap bg-violet-100 text-violet-700 px-5 py-2 rounded-full text-sm font-semibold shadow-sm">
+                            2025 - Present
+                        </span>
+                        
+
+                    </div>
+
+                    <ul class="mt-8 space-y-4 text-slate-600 leading-7 list-disc pl-6">
+
+                        <li>
+                            Administer and maintain Linux-based production infrastructure to ensure high availability, reliability, and optimal system performance.
+                        </li>
+
+                        <li>
+                            Deploy and manage containerized applications using Docker, Kubernetes, Helm, Nginx, and container registries with minimal production downtime.
+                        </li>
+
+                        <li>
+                            Troubleshoot production issues involving Pods, Deployments, StatefulSets, Services, Ingress, Persistent Volumes, ConfigMaps, Secrets, networking, and Kubernetes resources.
+                        </li>
+
+                        <li>
+                            Manage Kubernetes cluster operations including workload scheduling, storage provisioning, node management, cluster upgrades, and infrastructure maintenance.
+                        </li>
+
+                        <li>
+                            Build CI/CD and GitOps pipelines using GitLab CI/CD, Jenkins, and Argo CD for automated deployments.
+                        </li>
+
+                        <li>
+                            Deploy and support enterprise applications with PostgreSQL, MySQL, Redis, SSL/TLS, reverse proxy, and application configuration.
+                        </li>
+
+                        <li>
+                            Integrate authentication and service mesh technologies including OIDC, APISIX, Istio, and Kiali.
+                        </li>
+
+                        <li>
+                            Research and implement cloud-native technologies through PoC including Mirantis Kubernetes Engine (MKE), Lagoon, and k0s ecosystem.
+                        </li>
+
+                        <li>
+                            Design AI infrastructure using Flyte, MinIO, Ceph Object Storage, GPU-enabled Kubernetes workloads, and AI/ML pipelines.
+                        </li>
+
+                        <li>
+                            Monitor infrastructure health, perform capacity planning, platform upgrades, migrations, and technical documentation.
+                        </li>
+
+                    </ul>
+
+                    <div class="flex flex-wrap gap-3 mt-8">
+
+                        <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Linux</span>
+
+                        <span class="skill-badge bg-sky-100 text-sky-700 px-4 py-2">Docker</span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">Kubernetes</span>
+
+                        <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">Helm</span>
+
+                        <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">GitLab CI/CD</span>
+
+                        <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">Argo CD</span>
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-4 py-2">Flyte</span>
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-4 py-2">Ceph</span>
+
+                        <span class="skill-badge bg-emerald-100 text-emerald-700 px-4 py-2">MinIO</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================================================= -->
+            <!-- PT. Adhikari -->
+            <!-- ================================================= -->
+
+            <div class="relative lg:pl-28 reveal">
+
+                <div class="hidden lg:flex absolute left-2 top-6 w-12 h-12 rounded-full bg-pink-500 text-white items-center justify-center text-xl shadow-lg">
+                    💼
+                </div>
+
+                <div class="glass-card p-8">
+
+                    <div class="flex flex-col lg:flex-row lg:justify-between">
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold text-pink-600">
+                                System Engineer
+                            </h3>
+
+                            <p class="text-slate-500 mt-2">
+                                PT. Adhikari Inovasi Indonesia
+                            </p>
+
+                        </div>
+
+                        <span
+                            class="mt-4 lg:mt-0 inline-flex w-fit self-start lg:self-center items-center justify-center whitespace-nowrap bg-pink-100 text-pink-700 px-5 py-2 rounded-full text-sm font-semibold shadow-sm">
+                            2024 - 2025
+                        </span>
+
+                    </div>
+
+                    <ul class="mt-8 space-y-4 text-slate-600 leading-7 list-disc pl-6">
+
+                        <li>Configured and optimized Linux server environments for enterprise applications.</li>
+
+                        <li>Built and managed Docker images, containers, and Docker Hub repositories.</li>
+
+                        <li>Performed application deployment using Nginx with minimal downtime.</li>
+
+                        <li>Collaborated with development teams to integrate frontend and backend services.</li>
+
+                        <li>Developed CI/CD pipelines using Jenkins.</li>
+
+                        <li>Implemented monitoring dashboards using Prometheus and Grafana.</li>
+
+                        <li>Configured server security including firewall, SSL/TLS, and intrusion prevention.</li>
+
+                    </ul>
+
+                    <div class="flex flex-wrap gap-3 mt-8">
+
+                        <span class="skill-badge bg-sky-100 text-sky-700 px-4 py-2">Docker</span>
+
+                        <span class="skill-badge bg-teal-100 text-teal-700 px-4 py-2">Linux</span>
+
+                        <span class="skill-badge bg-yellow-100 text-yellow-700 px-4 py-2">Nginx</span>
+
+                        <span class="skill-badge bg-indigo-100 text-indigo-700 px-4 py-2">Jenkins</span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-4 py-2">Prometheus</span>
+
+                        <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">Grafana</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    PROJECTS SECTION
+=========================================================== -->
+
+<section id="projects" class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-20 reveal">
+
+            <h2 class="section-title text-4xl lg:text-5xl">
+
+                Featured Projects
+
+            </h2>
+
+            <p class="mt-8 text-slate-500 max-w-3xl mx-auto">
+
+                Selected projects showcasing my experience in
+                Kubernetes, enterprise infrastructure,
+                and AI platforms.
+
+            </p>
+
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+
+            <!-- ====================================== -->
+
+            <!-- PROJECT 1 -->
+
+            <!-- ====================================== -->
+
+            <div class="project-card reveal">
+
+                <div
+                    class="h-40 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-pink-500 p-8 text-white">
+
+                    <h3 class="text-2xl font-bold">
+
+                        AI Infrastructure Platform
+
+                    </h3>
+
+                    <p class="mt-3 opacity-90">
+
+                        Enterprise AI Environment
+
+                    </p>
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="text-yellow-400 text-xl">
+
+                        ⭐⭐⭐⭐⭐
+
+                    </div>
+
+                    <p class="mt-6 leading-7 text-slate-600">
+
+                        Designed and deployed an end-to-end AI
+                        Infrastructure Platform supporting GPU
+                        workloads, distributed storage,
+                        workflow orchestration,
+                        and enterprise AI pipelines.
+
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-8">
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-3 py-2">
+                            Kubernetes
+                        </span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-3 py-2">
+                            Flyte
+                        </span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-3 py-2">
+                            GPU
+                        </span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-3 py-2">
+                            Ceph
+                        </span>
+
+                        <span class="skill-badge bg-pink-100 text-pink-700 px-3 py-2">
+                            MinIO
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="open-modal mt-10 w-full btn-primary py-4"
+                        data-project="ai">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ====================================== -->
+
+            <!-- PROJECT 2 -->
+
+            <!-- ====================================== -->
+
+            <div class="project-card reveal">
+
+                <div
+                    class="h-40 bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 p-8 text-white">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Mirantis Kubernetes Platform
+
+                    </h3>
+
+                    <p class="mt-3 opacity-90">
+
+                        Enterprise Container Platform
+
+                    </p>
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="text-yellow-400 text-xl">
+
+                        ⭐⭐⭐⭐⭐
+
+                    </div>
+
+                    <p class="mt-6 leading-7 text-slate-600">
+
+                        Conducted research,
+                        Proof of Concept,
+                        installation,
+                        testing,
+                        validation,
+                        and troubleshooting
+                        of Mirantis Kubernetes technologies.
+
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-8">
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-3 py-2">
+                            MKE
+                        </span>
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-3 py-2">
+                            Lagoon
+                        </span>
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-3 py-2">
+                            k0rdent
+                        </span>
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-3 py-2">
+                            k0s
+                        </span>
+
+                        <span class="skill-badge bg-cyan-100 text-cyan-700 px-3 py-2">
+                            k0smotron
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="open-modal mt-10 w-full btn-primary py-4"
+                        data-project="mirantis">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ====================================== -->
+
+            <!-- PROJECT 3 -->
+
+            <!-- ====================================== -->
+
+            <div class="project-card reveal">
+
+                <div
+                    class="h-40 bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 p-8 text-white">
+
+                    <h3 class="text-2xl font-bold">
+
+                        Enterprise Kubernetes Administration
+
+                    </h3>
+
+                    <p class="mt-3 opacity-90">
+
+                        Production Kubernetes Cluster
+
+                    </p>
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="text-yellow-400 text-xl">
+
+                        ⭐⭐⭐⭐⭐
+
+                    </div>
+
+                    <p class="mt-6 leading-7 text-slate-600">
+
+                        Managed enterprise Kubernetes clusters,
+                        storage,
+                        networking,
+                        upgrades,
+                        deployments,
+                        monitoring,
+                        and production workloads.
+
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-8">
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-3 py-2">
+                            Helm
+                        </span>
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-3 py-2">
+                            Ingress
+                        </span>
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-3 py-2">
+                            PVC
+                        </span>
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-3 py-2">
+                            ConfigMap
+                        </span>
+
+                        <span class="skill-badge bg-orange-100 text-orange-700 px-3 py-2">
+                            Secret
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="open-modal mt-10 w-full btn-primary py-4"
+                        data-project="kubernetes">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    PROJECT DETAIL MODAL
+=========================================================== -->
+
+<div
+    id="projectModal"
+    class="modal">
+
+    <div class="modal-content relative">
+
+        <!-- Close Button -->
+
+        <button
+            id="closeModal"
+            class="absolute top-6 right-6 w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-200 duration-300 text-2xl">
+
+            ×
+
+        </button>
+
+        <!-- Header -->
+
+        <div class="mb-10">
+
+            <span
+                id="modalCategory"
+                class="inline-flex px-4 py-2 rounded-full bg-violet-100 text-violet-700 font-semibold">
+
+                Enterprise Project
+
+            </span>
+
+            <h2
+                id="modalTitle"
+                class="text-4xl font-extrabold mt-6 text-slate-900">
+
+                Project Title
+
+            </h2>
+
+            <div
+                id="modalStars"
+                class="text-yellow-400 text-2xl mt-4">
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+        </div>
+
+        <!-- Overview -->
+
+        <div class="mb-12">
+
+            <h3
+                class="text-2xl font-bold text-violet-600 mb-5">
+
+                Overview
+
+            </h3>
+
+            <p
+                id="modalOverview"
+                class="leading-8 text-slate-600">
+
+            </p>
+
+        </div>
+
+        <!-- Responsibilities -->
+
+        <div class="mb-12">
+
+            <h3
+                class="text-2xl font-bold text-violet-600 mb-6">
+
+                Responsibilities
+
+            </h3>
+
+            <div
+                id="modalResponsibilities"
+                class="grid md:grid-cols-2 gap-4">
+
+            </div>
+
+        </div>
+
+        <!-- Technology -->
+
+        <div>
+
+            <h3
+                class="text-2xl font-bold text-violet-600 mb-6">
+
+                Technology Stack
+
+            </h3>
+
+            <div
+                id="modalTechnology"
+                class="flex flex-wrap gap-3">
+
+            </div>
+
+        </div>
+
+        <!-- Project Gallery -->
+
+        <div class="mt-14">
+
+            <h3 class="text-2xl font-bold text-violet-600 mb-8">
+
+                Project Gallery
+
+            </h3>
+
+            <div
+                id="modalGallery"
+                class="grid md:grid-cols-2 gap-6">
+
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+</div>
+
+<!-- ==========================================================
+    IMAGE VIEWER
+=========================================================== -->
+
+<div
+    id="imageViewer"
+    class="fixed inset-0 hidden items-center justify-center bg-black/90 z-[9999] p-8">
+
+    <button
+        id="closeImage"
+        class="absolute top-6 right-8 text-white text-5xl hover:text-red-400 duration-300">
+
+        ×
+
+    </button>
+
+    <img
+        id="fullImage"
+        src=""
+        class="max-w-full max-h-full rounded-xl shadow-2xl">
+
+</div>
+
+<!-- ==========================================================
+    MODAL DATA (Hidden)
+=========================================================== -->
+
+<script>
+
+const projectData = {
+
+    ai: {
+
+        category: "AI Infrastructure",
+
+        title: "AI Infrastructure Platform",
+
+        overview:
+`Designed and deployed an enterprise AI Infrastructure Platform capable of supporting GPU workloads, workflow orchestration, distributed object storage, artifact management, and scalable AI pipelines. The platform enables machine learning teams to efficiently develop, train, and manage AI workloads on Kubernetes.`,
+
+        responsibilities: [
+
+            "Infrastructure Design",
+
+            "Kubernetes Administration",
+
+            "GPU Configuration",
+
+            "Flyte Installation",
+
+            "Ceph Deployment",
+
+            "MinIO Configuration",
+
+            "Object Storage",
+
+            "Artifact Management",
+
+            "AI Pipeline Integration",
+
+            "Performance Optimization",
+
+            "Troubleshooting",
+
+            "Documentation"
+
+        ],
+
+        technology: [
+
+            "Kubernetes",
+
+            "Flyte",
+
+            "GPU",
+
+            "Docker",
+
+            "Linux",
+
+            "Helm",
+
+            "Ceph",
+
+            "MinIO",
+
+            "Object Storage",
+
+            "Artifact Management"
+
+        ],
+
+        gallery: [
+
+            "assets/flyte.png"
+
+        ]
+
+    },
+
+    mirantis: {
+
+        category: "Enterprise Kubernetes",
+
+        title: "Mirantis Kubernetes Platform",
+
+        overview:
+`Performed research, Proof of Concept, installation, configuration, testing, troubleshooting, and validation for Mirantis Kubernetes solutions including MKE, Lagoon, k0rdent, k0s, and k0smotron to evaluate enterprise container platform capabilities.`,
+
+        responsibilities: [
+
+            "Technology Research",
+
+            "Architecture Evaluation",
+
+            "Proof of Concept",
+
+            "Installation",
+
+            "Configuration",
+
+            "Testing",
+
+            "Performance Validation",
+
+            "Documentation",
+
+            "Troubleshooting"
+
+        ],
+
+        technology: [
+
+            "MKE",
+
+            "Lagoon",
+
+            "k0rdent",
+
+            "k0s",
+
+            "k0smotron",
+
+            "Docker",
+
+            "Linux",
+
+            "Kubernetes"
+
+        ],
+        gallery: [
+
+        "assets/lagoon.png"
+
+        ]
+
+    },
+
+    kubernetes: {
+
+        category: "Enterprise Infrastructure",
+
+        title: "Enterprise Kubernetes Administration",
+
+        overview:
+`Managed enterprise Kubernetes clusters supporting production workloads by deploying applications, configuring storage and networking, performing upgrades, monitoring system health, and ensuring high availability across the environment.`,
+
+        responsibilities: [
+
+            "Cluster Administration",
+
+            "Node Management",
+
+            "Helm Deployment",
+
+            "Ingress Configuration",
+
+            "ConfigMap Management",
+
+            "Secret Management",
+
+            "Persistent Volume",
+
+            "Storage Integration",
+
+            "Cluster Upgrade",
+
+            "Monitoring",
+
+            "Troubleshooting"
+
+        ],
+
+        technology: [
+
+            "Kubernetes",
+
+            "Helm",
+
+            "Ingress",
+
+            "ConfigMap",
+
+            "Secret",
+
+            "PVC",
+
+            "Storage",
+
+            "Linux",
+
+            "Docker"
+
+        ],
+
+        gallery: [
+
+        "assets/lagoon.png"
+
+        ]
+
+    }
+
+};
+
+</script>
+
+<!-- ==========================================================
+    CONTACT SECTION
+=========================================================== -->
+
+<section id="contact" class="py-24">
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+        <div class="text-center mb-16 reveal">
+
+            <h2 class="section-title text-4xl lg:text-5xl">
+
+                Let's Connect
+
+            </h2>
+
+            <p class="mt-8 text-slate-500 max-w-2xl mx-auto">
+
+                I'm always open to discussing new opportunities,
+                cloud-native technologies, AI infrastructure,
+                DevOps, and enterprise platform engineering.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- EMAIL -->
+
+            <a href="mailto:graceghefira@gmail.com"
+                class="glass-card p-10 text-center hover:-translate-y-2 duration-300">
+
+                <div
+                    class="w-20 h-20 rounded-full bg-pink-100 mx-auto flex items-center justify-center text-4xl">
+
+                    📧
+
+                </div>
+
+                <h3 class="mt-8 text-2xl font-bold">
+
+                    Email
+
+                </h3>
+
+                <p class="mt-4 text-slate-500 break-all">
+
+                    graceghefira@gmail.com
+
+                </p>
+
+                <div
+                    class="mt-8 inline-flex items-center gap-2 text-pink-600 font-semibold">
+
+                    Send Email →
+
+                </div>
+
+            </a>
+
+            <!-- LINKEDIN -->
+
+            <a href="https://www.linkedin.com/in/graceghefira"
+                target="_blank"
+                class="glass-card p-10 text-center hover:-translate-y-2 duration-300">
+
+                <div
+                    class="w-20 h-20 rounded-full bg-violet-100 mx-auto flex items-center justify-center text-4xl">
+
+                    💼
+
+                </div>
+
+                <h3 class="mt-8 text-2xl font-bold">
+
+                    LinkedIn
+
+                </h3>
+
+                <p class="mt-4 text-slate-500">
+
+                    /in/graceghefira
+
+                </p>
+
+                <div
+                    class="mt-8 inline-flex items-center gap-2 text-violet-600 font-semibold">
+
+                    Visit Profile →
+
+                </div>
+
+            </a>
+
+            <!-- CV -->
+
+            <a href="assets/CV GRACE english.pdf"
+                download
+                class="glass-card p-10 text-center hover:-translate-y-2 duration-300">
+
+                <div
+                    class="w-20 h-20 rounded-full bg-teal-100 mx-auto flex items-center justify-center text-4xl">
+
+                    📄
+
+                </div>
+
+                <h3 class="mt-8 text-2xl font-bold">
+
+                    Resume
+
+                </h3>
+
+                <p class="mt-4 text-slate-500">
+
+                    Download my latest CV (PDF)
+
+                </p>
+
+                <div
+                    class="mt-8 inline-flex items-center gap-2 text-teal-600 font-semibold">
+
+                    Download CV →
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    BACK TO TOP BUTTON
+=========================================================== -->
+
+<button
+    id="backToTop"
+    class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-violet-600 text-white shadow-xl hidden hover:scale-110 duration-300 z-50">
+
+    ↑
+
+</button>
+
+<!-- ==========================================================
+    MOBILE MENU
+=========================================================== -->
+
+<div
+    id="mobileMenu"
+    class="fixed top-20 left-0 w-full bg-white shadow-xl hidden lg:hidden z-40">
+
+    <div class="flex flex-col p-6 gap-5">
+
+        <a href="#about" class="mobile-link">About</a>
+
+        <a href="#skills" class="mobile-link">Skills</a>
+
+        <a href="#experience" class="mobile-link">Experience</a>
+
+        <a href="#projects" class="mobile-link">Projects</a>
+
+        <a href="#contact" class="mobile-link">Contact</a>
+
+    </div>
+
+</div>
+
+<!-- ==========================================================
+    JAVASCRIPT
+=========================================================== -->
+
+<script>
+
+/* =====================================
+    PROJECT MODAL
+===================================== */
+
+const modal = document.getElementById("projectModal");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const modalCategory = document.getElementById("modalCategory");
+
+const modalOverview = document.getElementById("modalOverview");
+
+const modalResponsibilities = document.getElementById("modalResponsibilities");
+
+const modalTechnology = document.getElementById("modalTechnology");
+
+const modalGallery = document.getElementById("modalGallery");
+
+const imageViewer = document.getElementById("imageViewer");
+
+const fullImage = document.getElementById("fullImage");
+
+document.querySelectorAll(".open-modal").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const project = projectData[button.dataset.project];
+
+        modalCategory.textContent = project.category;
+        modalTitle.textContent = project.title;
+        modalOverview.textContent = project.overview;
+
+        modalResponsibilities.innerHTML = "";
+        modalTechnology.innerHTML = "";
+        modalGallery.innerHTML = "";
+
+        /* Responsibilities */
+
+        project.responsibilities.forEach(item => {
+
+            modalResponsibilities.innerHTML += `
+                <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-4">
+                    <span class="text-green-500 font-bold">✔</span>
+                    <span>${item}</span>
+                </div>
+            `;
+
+        });
+
+        /* Technology */
+
+        project.technology.forEach(item => {
+
+            modalTechnology.innerHTML += `
+                <span class="skill-badge bg-violet-100 text-violet-700 px-4 py-2">
+                    ${item}
+                </span>
+            `;
+
+        });
+
+        /* Gallery */
+
+        if (project.gallery && project.gallery.length > 0) {
+
+            project.gallery.forEach(image => {
+
+                modalGallery.innerHTML += `
+                    <div class="overflow-hidden rounded-2xl shadow-lg bg-slate-100">
+
+                        <img
+                            src="${image}"
+                            data-image="${image}"
+                            class="gallery-image w-full h-72 object-contain bg-slate-100 cursor-pointer hover:scale-105 duration-300">
+
+                    </div>
+                `;
+
+            });
+
+        } else {
+
+            modalGallery.innerHTML = `
+                <div class="col-span-2 text-center py-10 text-slate-400">
+                    No project screenshots available.
+                </div>
+            `;
+
+        }
+
+        /* Image Click */
+
+        document.querySelectorAll(".gallery-image").forEach(img => {
+
+            img.addEventListener("click", () => {
+
+                fullImage.src = img.dataset.image;
+
+                imageViewer.classList.remove("hidden");
+                imageViewer.classList.add("flex");
+
+            });
+
+        });
+
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+/* =====================================
+    CLOSE MODAL
+===================================== */
+
+document.getElementById("closeModal").onclick = () => {
+
+    modal.style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+}
+
+window.onclick = (e) => {
+
+    if (e.target === modal) {
+
+        modal.style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+}
+
+document.addEventListener("keydown", e => {
+
+    if (e.key === "Escape") {
+
+        modal.style.display = "none";
+
+        document.body.style.overflow = "auto";
+
+    }
+
+});
+
+document.getElementById("closeImage").addEventListener("click", () => {
+
+    imageViewer.classList.remove("flex");
+    imageViewer.classList.add("hidden");
+
+});
+
+imageViewer.addEventListener("click", (e) => {
+
+    if (e.target === imageViewer) {
+
+        imageViewer.classList.remove("flex");
+        imageViewer.classList.add("hidden");
+
+    }
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape" && imageViewer.classList.contains("flex")) {
+
+        imageViewer.classList.remove("flex");
+        imageViewer.classList.add("hidden");
+
+    }
+
+});
+
+/* =====================================
+    SCROLL REVEAL
+===================================== */
+
+const reveal = () => {
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        const windowHeight = window.innerHeight;
+
+        if (top < windowHeight - 120) {
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", reveal);
+
+reveal();
+
+/* =====================================
+    NAVBAR SHADOW
+===================================== */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+
+        navbar.classList.add("navbar-shadow");
+
+    } else {
+
+        navbar.classList.remove("navbar-shadow");
+
+    }
+
+});
+
+/* =====================================
+    BACK TO TOP
+===================================== */
+
+const topButton = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+        topButton.classList.remove("hidden");
+
+    } else {
+
+        topButton.classList.add("hidden");
+
+    }
+
+});
+
+topButton.onclick = () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+};
+
+/* =====================================
+    MOBILE MENU
+===================================== */
+
+const mobileButton = document.getElementById("mobileButton");
+
+const mobileMenu = document.getElementById("mobileMenu");
+
+mobileButton.onclick = () => {
+
+    mobileMenu.classList.toggle("hidden");
+
+};
+
+document.querySelectorAll(".mobile-link").forEach(link => {
+
+    link.onclick = () => {
+
+        mobileMenu.classList.add("hidden");
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>
+
